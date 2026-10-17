@@ -32,4 +32,3 @@ void KenoNumbers::printKenoNumbers() {
 void KenoNumbers::clearKenoNumbers() {
     m_numbers.clear();
 }
-

@@ -12,5 +12,4 @@ public:
     void clearKenoNumbers();
 };
 
-
 #endif //CSC_275_TEST1_KENO_KENONUMBERS_H

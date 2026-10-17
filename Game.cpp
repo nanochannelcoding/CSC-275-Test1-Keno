@@ -61,7 +61,7 @@ void Game::playGame() {
         std::cout << "\nTo play Keno, select 10 unique (no repeats) numbers in the range of 1-80.\n\n";
         std::cout << "Let's Play Keno!\n\n";
 
-        m_player.inputplayernumbers();
+        m_player.inputPlayerNumbers();
         m_keno.generateNumbers();
 
         printMatches(
