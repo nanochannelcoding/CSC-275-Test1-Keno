@@ -20,7 +20,7 @@ void Game::displayResults() {
     // Display results
     std::cout <<"\n----------------------------------Results----------------------------------\n";
     m_keno.printKenoNumbers();
-    m_player.printPlayernumbers();
+    m_player.printPlayerNumbers();
 
     std::cout << "You matched: ";
 
@@ -65,7 +65,7 @@ void Game::playGame() {
         m_keno.generateNumbers();
 
         printMatches(
-        m_player.getPlayernumbers(), m_keno.getKenoNumbers()
+        m_player.getPlayerNumbers(), m_keno.getKenoNumbers()
         );
         displayResults();
 
@@ -73,7 +73,7 @@ void Game::playGame() {
         std::cout << "\n\nPlay again? (y/n): ";
         std::cin >> again;
 
-        m_player.clearPlayernumbers();
+        m_player.clearPlayerNumbers();
         m_keno.clearKenoNumbers();
         m_matches.clear();
         }
