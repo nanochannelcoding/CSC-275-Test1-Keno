@@ -3,10 +3,8 @@
 #include <algorithm>
 
 void Player::inputplayernumbers() {
-    char again = 'y';
     bool error;
     int temp=0;
-    std::vector <int> playerNumbers, kenoNumbers, matches;;
 
     // Get player picks
     for (int i=0;i<10;i++){
@@ -25,25 +23,28 @@ void Player::inputplayernumbers() {
             error = true;
             std::cout << temp << " is out of range! Try again. ";
         }
-        else if (std::find(playerNumbers.begin(), playerNumbers.end(), temp) != playerNumbers.end()) {
+        else if (std::find(m_playerNumbers.begin(), m_playerNumbers.end(), temp) != m_playerNumbers.end()) {
             error = true;
             std::cout << temp << " was already picked! Try again. ";
         }
         if (error)
             i--;
         else
-            playerNumbers.push_back(temp);
+            m_playerNumbers.push_back(temp);
     }
 }
 
 std::vector<int> Player::getPlayernumbers() {
-
+    return m_playerNumbers;
 }
 
 void Player::printPlayernumbers() {
-
+    std::sort(m_playerNumbers.begin(), m_playerNumbers.end());
+    for (auto i:m_playerNumbers) {
+        std::cout << i << " ";
+    }
 }
 
 void Player::clearPlayernumbers() {
-
+    m_playerNumbers.clear();
 }

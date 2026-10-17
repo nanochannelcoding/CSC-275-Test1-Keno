@@ -1,39 +1,37 @@
 #include "Game.h"
 #include <iostream>
 #include <algorithm>
-#include <cctype>
 
 Game::Game() {
-
 }
 
 void Game::printMatches(std::vector<int> playerPicks, std::vector<int> kenoNumbers) {
-
+    // Find matches
+    for(int i = 0; i < 10; i++) {
+        for(int j = 0; j < 20; j++) {
+            if(playerPicks.at(i) == kenoNumbers.at(j)) {
+                m_matches.push_back(playerPicks.at(i));
+            }
+        }
+    }
 }
 
 void Game::displayResults() {
+    // Display results
     std::cout <<"\n----------------------------------Results----------------------------------\n";
-    std::cout << "Keno Numbers: ";
-    std::sort(kenoNumbers.begin(), kenoNumbers.end());
-    for (auto i:kenoNumbers) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-    std::cout << "Players: ";
-    std::sort(playerNumbers.begin(), playerNumbers.end());
-    for (auto i:playerNumbers) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
+    m_keno.printKenoNumbers();
+    m_player.printPlayernumbers();
+
     std::cout << "You matched: ";
-    std::sort(matches.begin(), matches.end());
-    for (auto i:matches) {
+
+    std::sort(m_matches.begin(), m_matches.end());
+    for (auto i : m_matches) {
         std::cout << i << " ";
     }
 
-    if (matches.size() > 0) {
-        std::cout<<"\nMatching " << matches.size() << " of 20 numbers wins ";
-        switch (matches.size()){
+    if (m_matches.size() > 0) {
+        std::cout<<"\nMatching " << m_matches.size() << " of 20 numbers wins ";
+        switch (m_matches.size()){
             case 10:
                 std::cout<<"the GRAND PRIZE of $25,000";
                 break;
@@ -56,28 +54,29 @@ void Game::displayResults() {
                 std::cout<<"$0. Sorry, better luck next time.";
         }
     }
-    else {
-        std::cout << "\nSorry, you didn't have any matches.";
-    }
 }
-
 void Game::playGame() {
+    char again = 'y';
+    do {
+        std::cout << "\nTo play Keno, select 10 unique (no repeats) numbers in the range of 1-80.\n\n";
+        std::cout << "Let's Play Keno!\n\n";
 
-    std::cout << "\nTo play Keno, select 10 unique (no repeats) numbers in the range of 1-80.\n\n";
-    std::cout << "Let's Play Keno!\n\n";
+        m_player.inputplayernumbers();
+        m_keno.generateNumbers();
 
-    player.getPlayerPicks();
-    keno.generateKenoNumbers();
+        printMatches(
+        m_player.getPlayernumbers(), m_keno.getKenoNumbers()
+        );
+        displayResults();
 
-    // Find matches
-    for(int i = 0; i < 10; i++) {
-        for(int j = 0; j < 20; j++) {
-            if(playerNumbers.at(i) == kenoNumbers.at(j)) {
-                matches.push_back(playerNumbers.at(i));
-            }
+
+        std::cout << "\n\nPlay again? (y/n): ";
+        std::cin >> again;
+
+        m_player.clearPlayernumbers();
+        m_keno.clearKenoNumbers();
+        m_matches.clear();
         }
-    };
-}
-
-
-
+    while (tolower(again) == 'y');
+        std::cout << "\nTHANKS FOR PLAYING!!\n";
+    }

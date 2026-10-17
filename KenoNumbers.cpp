@@ -1,4 +1,5 @@
 #include "KenoNumbers.h"
+#include <iostream>
 #include <algorithm>
 #include <random>
 
@@ -21,12 +22,16 @@ void KenoNumbers::generateNumbers() {
 }
 
 std::vector<int> KenoNumbers::getKenoNumbers() {
-
+    return m_Numbers;
 }
 void KenoNumbers::printKenoNumbers() {
-
+    std::sort(m_Numbers.begin(), m_Numbers.end());
+    for (auto i:m_Numbers) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
 }
 void KenoNumbers::clearKenoNumbers() {
-
+    m_Numbers.clear();
 }
 

@@ -4,7 +4,7 @@
 
 class Player {
 private:
-    std::vector<int> m_playernumbers;
+    std::vector<int> m_playerNumbers;
 public:
     void inputplayernumbers();
     std::vector<int>getPlayernumbers();
