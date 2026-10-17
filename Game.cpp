@@ -70,7 +70,7 @@ void Game::playGame() {
         displayResults();
 
 
-        std::cout << "\n\nPlay again? (y/n): ";
+        std::cout << "\n\nPlay another round? (y/n): ";
         std::cin >> again;
 
         m_player.clearPlayerNumbers();
