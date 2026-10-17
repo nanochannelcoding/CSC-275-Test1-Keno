@@ -4,7 +4,7 @@
 
 class KenoNumbers {
 private:
-    std::vector<int> m_Numbers;
+    std::vector<int> m_numbers;
 public:
     void generateNumbers();
     std::vector<int> getKenoNumbers();

@@ -5,8 +5,6 @@
 
 void KenoNumbers::generateNumbers() {
     // Generate Keno numbers
-    std::vector <int> playerNumbers, kenoNumbers, matches;;
-
     std::random_device rd;
     std::mt19937 gen(rd());
     gen.seed(0);
@@ -14,24 +12,24 @@ void KenoNumbers::generateNumbers() {
     int num;
     for (int i = 1; i <= 20; ) {
         num = distrib(gen);
-        if (std::find(kenoNumbers.begin(), kenoNumbers.end(), num) == kenoNumbers.end()) {
-            kenoNumbers.push_back(num);
+        if (std::find(m_numbers.begin(), m_numbers.end(), num) == m_numbers.end()) {
+            m_numbers.push_back(num);
             i++;
         }
     }
 }
 
 std::vector<int> KenoNumbers::getKenoNumbers() {
-    return m_Numbers;
+    return m_numbers;
 }
 void KenoNumbers::printKenoNumbers() {
-    std::sort(m_Numbers.begin(), m_Numbers.end());
-    for (auto i:m_Numbers) {
+    std::sort(m_numbers.begin(), m_numbers.end());
+    for (auto i:m_numbers) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
 }
 void KenoNumbers::clearKenoNumbers() {
-    m_Numbers.clear();
+    m_numbers.clear();
 }
 

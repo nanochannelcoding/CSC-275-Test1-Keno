@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-void Player::inputplayernumbers() {
+void Player::inputPlayerNumbers() {
     bool error;
     int temp=0;
 
@@ -34,17 +34,17 @@ void Player::inputplayernumbers() {
     }
 }
 
-std::vector<int> Player::getPlayernumbers() {
+std::vector<int> Player::getPlayerNumbers() {
     return m_playerNumbers;
 }
 
-void Player::printPlayernumbers() {
+void Player::printPlayerNumbers() {
     std::sort(m_playerNumbers.begin(), m_playerNumbers.end());
     for (auto i:m_playerNumbers) {
         std::cout << i << " ";
     }
 }
 
-void Player::clearPlayernumbers() {
+void Player::clearPlayerNumbers() {
     m_playerNumbers.clear();
 }

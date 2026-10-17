@@ -6,10 +6,10 @@ class Player {
 private:
     std::vector<int> m_playerNumbers;
 public:
-    void inputplayernumbers();
-    std::vector<int>getPlayernumbers();
-    void printPlayernumbers();
-    void clearPlayernumbers();
+    void inputPlayerNumbers();
+    std::vector<int>getPlayerNumbers();
+    void printPlayerNumbers();
+    void clearPlayerNumbers();
 };
 
 
